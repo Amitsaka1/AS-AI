@@ -3,7 +3,9 @@ import telegram
 from flask import Flask, request
 import asyncio
 import logging
-from telegram.constants import ParseMode # --- 1. यहाँ बदलाव किया गया है ---
+from telegram import Update
+from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram.constants import ParseMode
 
 # Logging को सेटअप करना
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -14,10 +16,9 @@ TOKEN = os.environ.get('TELEGRAM_TOKEN')
 if not TOKEN:
     logger.error("TELEGRAM_TOKEN एनवायरनमेंट वेरिएबल नहीं मिला!")
 
-bot = telegram.Bot(token=TOKEN)
-app = Flask(__name__)
-
-# AI का नियम-आधारित दिमाग
+# ==================================================
+# AI का नियम-आधारित दिमाग (यह वही रहेगा)
+# ==================================================
 def get_ai_response(user_command):
     command = user_command.lower()
     if 'heading' in command:
@@ -29,33 +30,46 @@ def get_ai_response(user_command):
     else:
         return "कमांड समझ नहीं आई। 'heading', 'paragraph', या 'link' ट्राई करें।"
 
-# यह URL टेलीग्राम से मैसेज रिसीव करेगा
+# ==================================================
+# टेलीग्राम कमांड हैंडलर्स
+# ==================================================
+# /start कमांड के लिए
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("नमस्ते! मैं आपका HTML बॉट हूँ। मुझे कोई कमांड दें।")
+
+# किसी भी टेक्स्ट मैसेज के लिए
+async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_text = update.message.text
+    logger.info(f"'{update.effective_chat.id}' से मैसेज आया: '{user_text}'")
+    
+    # AI से जवाब पाना
+    ai_response = get_ai_response(user_text)
+    
+    # यूज़र को जवाब भेजना
+    await update.message.reply_text(f"Generated Code:\n`{ai_response}`", parse_mode=ParseMode.MARKDOWN)
+
+# ==================================================
+# Flask वेब एप्लीकेशन और बॉट का सेटअप
+# ==================================================
+app = Flask(__name__)
+application = Application.builder().token(TOKEN).build()
+
+# कमांड्स को उनके फंक्शन से जोड़ना
+application.add_handler(CommandHandler("start", start))
+application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
 @app.route(f'/{TOKEN}', methods=['POST'])
 def respond():
-    try:
-        update = telegram.Update.de_json(request.get_json(force=True), bot)
-        if update.message and update.message.text:
-            chat_id = update.message.chat.id
-            user_text = update.message.text
-            logger.info(f"'{chat_id}' से मैसेज आया: '{user_text}'")
-            ai_response = get_ai_response(user_text)
-            
-            # --- 2. यहाँ बदलाव किया गया है ---
-            asyncio.run(bot.sendMessage(chat_id=chat_id, text=f"Generated Code:\n`{ai_response}`", parse_mode=ParseMode.MARKDOWN))
-    except Exception as e:
-        logger.error(f"एक एरर आई: {e}", exc_info=True)
+    # टेलीग्राम से आने वाले अपडेट को प्रोसेस करना
+    asyncio.run(application.update_queue.put(Update.de_json(request.get_json(force=True), application.bot)))
     return 'ok'
 
-# यह URL वेबहुक सेट करने के लिए है
 @app.route('/setwebhook')
 def set_webhook():
     host_url = request.url_root.replace("http://", "https://")
     webhook_url = f'{host_url}{TOKEN}'
-    
-    s = asyncio.run(bot.setWebhook(webhook_url))
-    message = "Webhook setup ok" if s else "Webhook setup failed"
-    logger.info(message)
-    return message
+    asyncio.run(application.bot.set_webhook(webhook_url))
+    return f"Webhook setup ok for {webhook_url}"
 
 @app.route('/')
 def index():
