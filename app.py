@@ -3,6 +3,7 @@ import telegram
 from flask import Flask, request
 import asyncio
 import logging
+from telegram.constants import ParseMode # --- 1. यहाँ बदलाव किया गया है ---
 
 # Logging को सेटअप करना
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -38,7 +39,9 @@ def respond():
             user_text = update.message.text
             logger.info(f"'{chat_id}' से मैसेज आया: '{user_text}'")
             ai_response = get_ai_response(user_text)
-            asyncio.run(bot.sendMessage(chat_id=chat_id, text=f"Generated Code:\n`{ai_response}`", parse_mode=telegram.ParseMode.MARKDOWN))
+            
+            # --- 2. यहाँ बदलाव किया गया है ---
+            asyncio.run(bot.sendMessage(chat_id=chat_id, text=f"Generated Code:\n`{ai_response}`", parse_mode=ParseMode.MARKDOWN))
     except Exception as e:
         logger.error(f"एक एरर आई: {e}", exc_info=True)
     return 'ok'
@@ -46,8 +49,6 @@ def respond():
 # यह URL वेबहुक सेट करने के लिए है
 @app.route('/setwebhook')
 def set_webhook():
-    # --- यहाँ बदलाव किया गया है ---
-    # यह सुनिश्चित करता है कि URL हमेशा https हो
     host_url = request.url_root.replace("http://", "https://")
     webhook_url = f'{host_url}{TOKEN}'
     
