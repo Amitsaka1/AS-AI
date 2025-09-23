@@ -25,11 +25,9 @@ def respond():
     update = telegram.Update.de_json(request.get_json(force=True), bot)
     chat_id = update.message.chat.id
     user_text = update.message.text
-
-    # AI से जवाब पाना
+    
     ai_response = get_ai_response(user_text)
-
-    # यूज़र को जवाब भेजना
+    
     bot.sendMessage(chat_id=chat_id, text=f"Generated Code:\n`{ai_response}`", parse_mode=telegram.ParseMode.MARKDOWN)
     return 'ok'
 
@@ -45,6 +43,9 @@ def set_webhook():
 def index():
     return 'Server is running...'
 
+# --- यहाँ बदलाव किया गया है ---
 if __name__ == '__main__':
-    app.run(threaded=True)
-  
+    # Koyeb द्वारा दिए गए पोर्ट का उपयोग करें
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+    
