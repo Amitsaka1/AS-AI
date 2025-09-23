@@ -1,14 +1,14 @@
 import os
 import telegram
 from flask import Flask, request
-import asyncio # --- 1. इसे जोड़ा गया है ---
-
-# Logging को सेटअप करना ताकि हमें एरर का पता चले
+import asyncio
 import logging
+
+# Logging को सेटअप करना
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# टोकन को सुरक्षित जगह से लोड करना
+# टोकन को लोड करना
 TOKEN = os.environ.get('TELEGRAM_TOKEN')
 if not TOKEN:
     logger.error("TELEGRAM_TOKEN एनवायरनमेंट वेरिएबल नहीं मिला!")
@@ -33,34 +33,25 @@ def get_ai_response(user_command):
 def respond():
     try:
         update = telegram.Update.de_json(request.get_json(force=True), bot)
-        
         if update.message and update.message.text:
             chat_id = update.message.chat.id
             user_text = update.message.text
-            
             logger.info(f"'{chat_id}' से मैसेज आया: '{user_text}'")
-            
             ai_response = get_ai_response(user_text)
-            
-            # --- 2. यहाँ बदलाव किया गया है ---
             asyncio.run(bot.sendMessage(chat_id=chat_id, text=f"Generated Code:\n`{ai_response}`", parse_mode=telegram.ParseMode.MARKDOWN))
-        else:
-            logger.warning("अपडेट में कोई टेक्स्ट मैसेज नहीं था।")
-            
     except Exception as e:
         logger.error(f"एक एरर आई: {e}", exc_info=True)
-        
     return 'ok'
 
 # यह URL वेबहुक सेट करने के लिए है
 @app.route('/setwebhook')
 def set_webhook():
-    host_url = request.url_root
+    # --- यहाँ बदलाव किया गया है ---
+    # यह सुनिश्चित करता है कि URL हमेशा https हो
+    host_url = request.url_root.replace("http://", "https://")
     webhook_url = f'{host_url}{TOKEN}'
     
-    # --- 3. यहाँ बदलाव किया गया है ---
     s = asyncio.run(bot.setWebhook(webhook_url))
-    
     message = "Webhook setup ok" if s else "Webhook setup failed"
     logger.info(message)
     return message
@@ -72,4 +63,4 @@ def index():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=port)
-
+    
