@@ -24,4 +24,4 @@ prompt,code
 "एक लिंक बनाओ जो एक नए टैब में खुले","<a href='https://google.com' target='_blank'>Open Google in New Tab</a>"
 "टेक्स्ट को अंडरलाइन करो","<u>This is underlined text.</u>"
 "एक जावास्क्रिप्ट कोड लिखो जो आज की तारीख दिखाए","<p id='date'></p><script>document.getElementById('date').innerHTML = new Date();</script>"
-"एक div बनाओ जिस पर माउस ले जाने पर उसका रंग बदल जाए","<div onmouseover='this.style.color=\"red\"' onmouseout='this.style.color=\"black\"'>Hover over me!</div>"
+"एक div बनाओ जिस पर माउस ले जाने पर उसका रंग बदल जाए","<div onmouseover='this.style.color=`red`' onmouseout='this.style.color=`black`'>Hover over me!</div>"
