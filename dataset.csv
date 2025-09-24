@@ -1,5 +1,6 @@
 prompt,code
 
+prompt,code
 "एक नीला बटन बनाओ जिस पर 'Click Here' लिखा हो","<button style='background-color: blue; color: white;'>Click Here</button>"
 "एक पैराग्राफ जिसमें 'Hello World' लिखा हो","<p>Hello World</p>"
 "एक तस्वीर लगाओ जो 'cat.jpg' दिखाती हो","<img src='cat.jpg' alt='A cat picture'>"
@@ -13,7 +14,7 @@ prompt,code
 "एक ड्रॉपडाउन मेन्यू बनाओ जिसमें 'Car', 'Bike', 'Bus' के ऑप्शन हों","<select><option>Car</option><option>Bike</option><option>Bus</option></select>"
 "एक पासवर्ड इनपुट फील्ड बनाओ","<input type='password' placeholder='Enter password'>"
 "एक div बनाओ जिसका बैकग्राउंड हल्का ग्रे हो","<div style='background-color: #f0f0f0; padding: 10px;'>This is a grey div.</div>"
-"एक बटन बनाओ जिस पर क्लिक करने पर एक अलर्ट आए","<button onclick='alert(\"Hello!\")'>Click for Alert</button>"
+"एक बटन बनाओ जिस पर क्लिक करने पर एक अलर्ट आए","<button onclick=""alert('Hello!')"">Click for Alert</button>"
 "टेक्स्ट को इटैलिक (तिरछा) करो","<i>This text is italic.</i>"
 "एक नंबर इनपुट फील्ड बनाओ","<input type='number'>"
 "एक ईमेल इनपुट फील्ड बनाओ","<input type='email' placeholder='your@email.com'>"
@@ -25,3 +26,4 @@ prompt,code
 "टेक्स्ट को अंडरलाइन करो","<u>This is underlined text.</u>"
 "एक जावास्क्रिप्ट कोड लिखो जो आज की तारीख दिखाए","<p id='date'></p><script>document.getElementById('date').innerHTML = new Date();</script>"
 "एक div बनाओ जिस पर माउस ले जाने पर उसका रंग लाल हो जाए","<style>#hoverDiv:hover { color: red; }</style><div id='hoverDiv'>Hover over me!</div>"
+
