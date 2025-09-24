@@ -83,5 +83,4 @@ prompt,code
 "तीन शहरों वाली एक नंबर वाली लिस्ट बनाओ","<ol><li>Lucknow</li><li>Delhi</li><li>Mumbai</li></ol>"
 "कंटेंट के लिए एक div कंटेनर बनाओ","<div>This is content inside a div.</div>"
 "एक वाक्य के अंदर टेक्स्ट को स्टाइल करने के लिए span टैग","<p>This is a <span style='color:red;'>red</span> word.</p>"
-"कोड दिखाने के लिए pre टैग का इस्तेमाल करो","<pre><code>function hello() {\n  console.log(\"Hello, World!\");\n}</code></pre>"
-
+"कोड दिखाने के लिए pre टैग का इस्तेमाल करो","<pre><code>function hello() {\n  console.log('Hello, World!');\n}</code></pre>"
