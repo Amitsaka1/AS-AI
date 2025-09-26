@@ -1,4 +1,24 @@
 prompt,code
+"एक फॉर्म बनाओ जो सबमिट करने पर चेक करे कि इनपुट फील्ड खाली है या नहीं","<form onsubmit=""if(document.getElementById('fname').value === ''){ alert('Name must be filled out'); return false; }""><label>Name:</label><input id='fname' type='text'><input type='submit'></form>"
+"एक पासवर्ड फील्ड बनाओ जो 6 कैरेक्टर से कम होने पर एरर दे","<form onsubmit=""if(document.getElementById('pwd').value.length < 6){ alert('Password must be at least 6 characters'); return false; }""><label>Password:</label><input id='pwd' type='password'><input type='submit'></form>"
+"`setTimeout` का उपयोग करके 2 सेकंड बाद एक फंक्शन कॉल करो","<script>function delayedAlert() { alert('This message appeared after 2 seconds.'); } setTimeout(delayedAlert, 2000);</script>"
+"एक काउंटर शुरू करो जो हर सेकंड बढ़े और एक बटन से बंद हो जाए","<p id='counter'>0</p><button onclick=""clearInterval(myInterval)"">Stop Counter</button><script>var c=0; var myInterval = setInterval(function(){ c++; document.getElementById('counter').innerText = c; }, 1000);</script>"
+"एक जावास्क्रिप्ट ऑब्जेक्ट को JSON स्ट्रिंग में बदलो","<script>var user = {name:'Amit', age:25}; var jsonString = JSON.stringify(user); console.log(jsonString);</script>"
+"एक JSON स्ट्रिंग को वापस जावास्क्रिप्ट ऑब्जेक्ट में बदलो","<script>var jsonString = '{\""name\"":\""Amit\"", \""age\"":25}'; var userObject = JSON.parse(jsonString); console.log(userObject.name);</script>"
+"`window.location.href` से वर्तमान पेज का URL पता करो","<script>alert('The current URL is: ' + window.location.href);</script>"
+"एक बटन बनाओ जो क्लिक करने पर गूगल पर रीडायरेक्ट करे","<button onclick=""window.location.href='https://google.com'"">Go to Google</button>"
+"जावास्क्रिप्ट से एक सिंपल कुकी (cookie) सेट करो","<script>document.cookie = 'username=Amit; expires=Fri, 31 Dec 2026 23:59:59 GMT; path=/'; alert('Cookie set!');</script>"
+"जावास्क्रिप्ट से बनाई गई कुकी को पढ़ो","<script>alert('Cookies for this page: ' + document.cookie);</script>"
+"`localStorage` में एक की-वैल्यू पेयर सेव करो","<script>localStorage.setItem('theme', 'dark');</script>"
+"`localStorage` से एक वैल्यू प्राप्त करो","<script>var theme = localStorage.getItem('theme'); alert('Saved theme is: ' + theme);</script>"
+"`sessionStorage` में डेटा सेव करो जो टैब बंद होने पर डिलीट हो जाए","<script>sessionStorage.setItem('session_status', 'active');</script>"
+"एक एरो (arrow) फंक्शन बनाओ","<script>const greet = () => { return 'Hello from an arrow function!'; }; console.log(greet());</script>"
+"टेम्पलेट लिटरल का उपयोग करके एक स्ट्रिंग बनाओ","<script>var name='Amit'; var str = `Hello, my name is ${name}!`; console.log(str);</script>"
+"`for...of` लूप का उपयोग करके एक एरे के आइटम्स को प्रिंट करो","<script>const colors = ['red', 'green', 'blue']; for (const color of colors) { console.log(color); }</script>"
+"`for...in` लूप का उपयोग करके एक ऑब्जेक्ट की प्रॉपर्टीज को प्रिंट करो","<script>const person = {fname:'Amit', lname:'Saka', age:25}; for (const key in person) { console.log(key + ': ' + person[key]); }</script>"
+"`try...catch` ब्लॉक का उपयोग करके जावास्क्रिप्ट एरर को हैंडल करो","<script>try { nonExistentFunction(); } catch(err) { console.log('An error occurred: ' + err.message); }</script>"
+"जावास्क्रिप्ट से एक CSS वेरिएबल का मान बदलो","<style>:root{--bg-color: lightblue;}</style><div id='varDiv' style='padding:10px; background-color: var(--bg-color);'>Click button to change my color.</div><button onclick=""document.documentElement.style.setProperty('--bg-color', 'lightgreen')"">Change Color</button>"
+"`fetch` का उपयोग करके एक API से डेटा प्राप्त करो","<script>fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => response.json()).then(data => console.log(data));</script>"
 "जावास्क्रिप्ट से एक नया पैराग्राफ एलिमेंट बनाओ","<script>var newParagraph = document.createElement('p'); newParagraph.textContent = 'I was created by JS.'; document.body.appendChild(newParagraph);</script>"
 "एक div के अंदर एक नया h3 एलिमेंट जोड़ो","<div id='parentDiv' style='border: 1px solid;'></div><script>var newHeading = document.createElement('h3'); newHeading.innerHTML = 'Appended Heading'; document.getElementById('parentDiv').appendChild(newHeading);</script>"
 "एक div के अंदर से एक चाइल्ड एलिमेंट को हटाओ","<div id='parentDiv2'><p id='childPara'>Remove me</p></div><script>var child = document.getElementById('childPara'); document.getElementById('parentDiv2').removeChild(child);</script>"
@@ -19,7 +39,6 @@ prompt,code
 "यूज़र का ब्राउज़र ऐप नाम पता करो","<button onclick=""alert('Browser AppName: ' + navigator.appName);"">Show Browser Name</button>"
 "ब्राउज़र हिस्ट्री में एक पेज वापस जाने के लिए एक बटन बनाओ","<a href='javascript:history.back()'>Go Back</a>"
 "पेज के टाइटल को जावास्क्रिप्ट से बदलो","<script>document.title = 'New Page Title';</script>"
-
 "`addEventListener` का उपयोग करके एक क्लिक इवेंट लगाओ","<button id='btn1'>Click Me</button><script>document.getElementById('btn1').addEventListener('click', function() { alert('Event Listener Clicked!'); });</script>"
 "`mouseover` इवेंट लगाओ जो माउस ले जाने पर टेक्स्ट बदले","<p id='p_mouse'>Hover over me.</p><script>document.getElementById('p_mouse').addEventListener('mouseover', function() { this.innerHTML = 'Mouse is over!'; });</script>"
 "`mouseout` इवेंट लगाओ जो माउस हटाने पर टेक्स्ट वापस बदल दे","<p id='p_mouse_out' onmouseover=""this.style.color='red'"" onmouseout=""this.style.color='black'"">Hover to change my color.</p>"
@@ -40,7 +59,6 @@ prompt,code
 "3 सेकंड के बाद एक अलर्ट दिखाओ","<button onclick=""setTimeout(function(){ alert('Hello after 3 seconds!'); }, 3000)"">Click and wait 3 seconds</button>"
 "हर 1 सेकंड में समय अपडेट करने वाला डिजिटल क्लॉक बनाओ","<p id='clock'></p><script>setInterval(function(){ document.getElementById('clock').innerHTML = new Date().toLocaleTimeString(); }, 1000);</script>"
 "एक बटन बनाओ जो क्लिक करने पर एक लिस्ट में नया आइटम जोड़े","<ul id='myList'><li>First item</li></ul><button onclick=""var node = document.createElement('li'); node.appendChild(document.createTextNode('New item')); document.getElementById('myList').appendChild(node);"">Add New Item</button>"
-
 "एक 'Hello, World!' का अलर्ट दिखाओ","<script>alert('Hello, World!');</script>"
 "ब्राउज़र कंसोल में 'Test Message' लिखो","<script>console.log('Test Message');</script>"
 "जावास्क्रिप्ट से 'demo' आईडी वाले एलिमेंट को सिलेक्ट करो","<p id='demo'></p><script>var element = document.getElementById('demo');</script>"
@@ -61,7 +79,6 @@ prompt,code
 "एक इनपुट फील्ड की वैल्यू को अलर्ट में दिखाओ","<input type='text' id='nameInput' value='Saka'><button onclick=""alert(document.getElementById('nameInput').value)"">Show Value</button>"
 "आज की तारीख और समय को एक पैराग्राफ में दिखाओ","<p id='time'></p><script>document.getElementById('time').innerHTML = Date();</script>"
 "`document.write()` का उपयोग करके पेज पर कुछ लिखो","<p>This is a paragraph.</p><script>document.write('<h1>This text overwrites the page content.</h1>');</script>"
-
 "CSS में một 'main-color' नाम का वेरिएबल बनाओ","<style>:root { --main-color: #3498db; }</style><p>Variable is set.</p>"
 "`main-color` CSS वेरिएबल का उपयोग करके टेक्स्ट का रंग सेट करो","<style>:root { --main-color: #3498db; } p { color: var(--main-color); }</style><p>This text uses the CSS variable for its color.</p>"
 "एक मीडिया क्वेरी बनाओ जो 600px से बड़ी स्क्रीन पर बैकग्राउंड बदले","<style>body { background-color: lightblue; } @media (min-width: 600px) { body { background-color: lightgreen; } }</style><div>Resize the browser window to see the effect.</div>"
@@ -82,7 +99,6 @@ prompt,code
 "एक div को 20 डिग्री तिरछा (skew) करो","<div style='width: 50px; height: 50px; background: violet; transform: skewX(20deg);'></div>"
 "एक div को रोटेट और स्केल दोनों करो","<div style='width: 50px; height: 50px; background: orange; transform: rotate(20deg) scale(1.2);'></div>"
 "`display: contents` का उपयोग करके एक कंटेनर को लेआउट से हटाओ","<div style='display:flex; border: 1px solid red;'><div style='display:contents;'><p style='flex:1; border: 1px solid blue;'>Child 1</p><p style='flex:1; border: 1px solid blue;'>Child 2</p></div></div>"
-
 "फ्लेक्सबॉक्स का उपयोग करके एक इमेज, टाइटल और टेक्स्ट वाला कार्ड बनाओ","<div style='display: flex; flex-direction: column; width: 200px; border: 1px solid grey; border-radius: 5px; box-shadow: 2px 2px 5px #ccc;'><img src='image.jpg' alt='card image' style='width: 100%;'><div style='padding: 10px;'><h3>Card Title</h3><p>Some card text here to describe.</p></div></div>"
 "ग्रिड का उपयोग करके तीन कॉलम वाला एक कार्ड लेआउट बनाओ","<div style='display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;'><div style='border: 1px solid #ddd; padding: 10px;'>Card 1</div><div style='border: 1px solid #ddd; padding: 10px;'>Card 2</div><div style='border: 1px solid #ddd; padding: 10px;'>Card 3</div></div>"
 "ग्रिड से एक 'होली ग्रेल' लेआउट (हेडर, फुटर, साइडबार, मेन कंटेंट) बनाओ","<style>.hg-wrapper{display:grid; grid-template-areas: 'header header header' 'nav main aside' 'footer footer footer'; gap: 5px; height: 200px;}</style><div class='hg-wrapper'><header style='grid-area:header; background:lightgrey;'>Header</header><nav style='grid-area:nav; background:lightblue;'>Nav</nav><main style='grid-area:main; background:lightyellow;'>Main</main><aside style='grid-area:aside; background:lightgreen;'>Aside</aside><footer style='grid-area:footer; background:lightgrey;'>Footer</footer></div>"
@@ -103,7 +119,6 @@ prompt,code
 "एक div बनाओ जिसका आस्पेक्ट रेश्यो 16/9 हो","<div style='width: 50%; aspect-ratio: 16 / 9; background: lightgrey;'><p style='text-align:center; padding-top: 20%;'>16:9 Aspect Ratio</p></div>"
 "`clamp()` का उपयोग करके एक रिस्पॉन्सिव फॉन्ट साइज़ बनाओ","<h1 style='font-size: clamp(1.5rem, 5vw, 3rem);'>This is a Fluid Responsive Title</h1>"
 "ग्रिड लेआउट के अंदर फ्लेक्सबॉक्स का उपयोग करो","<div style='display: grid; grid-template-columns: 1fr 1fr; gap:10px;'><div style='display: flex; justify-content: center; align-items: center; background: lightblue;'>Flexbox Inside Grid</div><div style='background: lightcoral;'>Grid Cell 2</div></div>"
-
 "एक div को ग्रिड कंटेनर बनाओ","<div style='display: grid; border: 1px solid; min-height: 50px; padding: 5px;'>Grid Container</div>"
 "तीन बराबर चौड़ाई वाले कॉलम का ग्रिड बनाओ","<div style='display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;'><div style='background: lightblue; padding: 5px;'>1</div><div style='background: lightblue; padding: 5px;'>2</div><div style='background: lightblue; padding: 5px;'>3</div></div>"
 "दो कॉलम का ग्रिड बनाओ, पहला 100px और दूसरा 200px चौड़ा","<div style='display: grid; grid-template-columns: 100px 200px; gap: 10px;'><div style='background: lightcoral; padding: 5px;'>100px</div><div style='background: lightcoral; padding: 5px;'>200px</div></div>"
@@ -124,7 +139,6 @@ prompt,code
 "ग्रिड सेल के अंदर आइटम्स को पूरी तरह से सेंटर करो","<div style='display: grid; grid-template-rows: 100px; place-items: center; border: 1px solid;'><div style='background: lightgreen;'>Center & Middle</div></div>"
 "नाम वाली ग्रिड लाइन्स का उपयोग करके एक आइटम को रखो","<style>.grid-container{display:grid; grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col2-end];}</style><div class='grid-container'><div style='grid-column: col1-start / col2-end;'>Spans across named lines</div></div>"
 "एक ग्रिड के अंदर दूसरा ग्रिड बनाओ (नेस्टेड ग्रिड)","<div style='display: grid; grid-template-columns: 1fr 1fr; gap: 10px;'><div style='background: lightgrey; padding:5px;'>A</div><div style='display: grid; grid-template-columns: 1fr 1fr; gap: 5px; background: lightblue; padding:5px;'><div style='background: navy; color: white;'>B1</div><div style='background: navy; color: white;'>B2</div></div></div>"
-
 "एक div को फ्लेक्स कंटेनर बनाओ","<div style='display: flex; border: 1px solid; min-height: 50px;'></div>"
 "एक फ्लेक्स कंटेनर बनाओ जिसमें आइटम एक रो में हों","<div style='display: flex; border: 1px solid;'><div style='padding: 10px;'>One</div><div style='padding: 10px;'>Two</div><div style='padding: 10px;'>Three</div></div>"
 "एक फ्लेक्स कंटेनर बनाओ जिसमें आइटम एक कॉलम में हों","<div style='display: flex; flex-direction: column; border: 1px solid;'><div style='padding: 10px;'>One</div><div style='padding: 10px;'>Two</div></div>"
@@ -166,7 +180,6 @@ prompt,code
 "एक लिंक बनाओ जो visit करने के बाद हरा हो जाए","<style>a:visited { color: green; }</style><a href='#'>Click this link and I will turn green</a>"
 "एक 50px का लाल स्क्वायर बनाओ जो स्क्रीन के बॉटम-राइट कोने में हो","<div style='position: fixed; bottom: 10px; right: 10px; width: 50px; height: 50px; background: red;'></div>"
 "एक इनपुट फील्ड बनाओ जिस पर फोकस करने पर उसका बॉर्डर पीला हो जाए","<style>input:focus { border: 2px solid yellow; }</style><input type='text' placeholder='Click on me'>"
-
 "एक div बनाओ जिसमें चारों तरफ से 20px की पैडिंग हो","<div style='padding: 20px; border: 1px solid;'>Content with 20px padding.</div>"
 "एक div बनाओ जिसमें ऊपर-नीचे 10px और दाएं-बाएं 30px की पैडिंग हो","<div style='padding: 10px 30px; border: 1px solid;'>Padding top/bottom 10px, left/right 30px.</div>"
 "एक div बनाओ जिसमें सिर्फ टॉप से 25px की पैडिंग हो","<div style='padding-top: 25px; border: 1px solid;'>Content with only top padding.</div>"
