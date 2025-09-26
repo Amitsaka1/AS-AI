@@ -47,7 +47,6 @@ prompt,code
 "एक टू-डू आइटम को 'completed' मार्क करने के लिए PATCH रिक्वेस्ट भेजो","<script>fetch('.../todos/1', { method:'PATCH', body:JSON.stringify({completed:true}), headers:{'Content-type':'application/json'} });</script>"
 "API से एक GIF इमेज लोड करो","<img id='gif'><script>fetch('https://api.giphy.com/v1/gifs/random?api_key=...').then(r=>r.json()).then(d=>document.getElementById('gif').src=d.data.images.original.url);</script>"
 "API से मिले डेटा को फ़िल्टर करो","<script>fetch('.../posts').then(r=>r.json()).then(posts => { const filtered = posts.filter(p => p.userId === 1); console.log(filtered); });</script>"
-
 "एक लिस्ट के पहले तीन आइटम्स को स्लाइस करो","numbers = [0, 1, 2, 3, 4, 5]\nfirst_three = numbers[0:3]"
 "एक लिस्ट के आखिरी दो आइटम्स को स्लाइस करो","numbers = [0, 1, 2, 3, 4, 5]\nlast_two = numbers[-2:]"
 "लिस्ट कॉम्प्रिहेंशन का उपयोग करके नंबरों का स्क्वायर बनाओ","numbers = [1, 2, 3, 4]\nsquares = [n**2 for n in numbers]"
