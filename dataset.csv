@@ -77,7 +77,7 @@ prompt,code
 "`map` और `lambda` का उपयोग करके एक लिस्ट के सभी आइटम्स को बदलो","numbers = [1, 2, 3, 4]\ndoubled_numbers = list(map(lambda x: x * 2, numbers))"
 "`filter` और `lambda` का उपयोग करके एक लिस्ट से सिर्फ सम (even) नंबर निकालो","numbers = [1, 2, 3, 4, 5, 6]\neven_numbers = list(filter(lambda x: x % 2 == 0, numbers))"
 "`.format()` मेथड का उपयोग करके एक स्ट्रिंग को फॉर्मेट करो","name = 'Amit'\nage = 25\nprint('My name is {} and I am {} years old.'.format(name, age))"
-"पाइथन में एक मल्टी-लाइन स्ट्रिंग बनाओ","multi_line_string = """This is the first line.\nThis is the second line."""
+"पाइथन में एक मल्टी-लाइन स्ट्रिंग बनाओ","multi_line_string = \"\"\"This is the first line.\nThis is the second line.\"\"\""
 "`try...except` का उपयोग करके एक एरर को हैंडल करो","try:\n    result = 10 / 0\nexcept ZeroDivisionError:\n    print('Error: Cannot divide by zero!')"
 "`finally` ब्लॉक का उपयोग करो जो हमेशा चलता है","try:\n    f = open('file.txt', 'r')\nexcept FileNotFoundError:\n    print('File not found')\nfinally:\n    print('Execution finished.')"
 "पाइथन में एक ValueError एक्सेप्शन रेज (raise) करो","x = -1\nif x < 0:\n    raise ValueError('Number cannot be negative')"
