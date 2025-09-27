@@ -13,7 +13,7 @@ prompt,code
 "एक HTML फॉर्म बनाओ जो POST रिक्वेस्ट भेजे","<form action='/login' method='post'><input name='username' placeholder='Username'><button type='submit'>Login</button></form>"
 "एक सिंपल काउंटर के लिए Flask API बनाओ","from flask import Flask, jsonify\ncount = 0\napp = Flask(__name__)\n@app.route('/api/increment')\ndef increment_count():\n    global count\n    count += 1\n    return jsonify({'new_count': count})"
 "जावास्क्रिप्ट से काउंटर API को कॉल करो और वैल्यू दिखाओ","<p>Server Clicks: <span id='server-count'>0</span></p><button onclick=""fetch('/api/increment').then(r=>r.json()).then(d=>document.getElementById('server-count').innerText=d.new_count);"">Increment on Server</button>"
-"Flask में CSS जैसी स्टैटिक फाइलों को सर्व करने का तरीका","""\n<link rel='stylesheet' href="{{ url_for('static', filename='style.css') }}">"""
+"Flask में CSS जैसी स्टैटिक फाइलों को सर्व करने का तरीका","<link rel='stylesheet' href='{{ url_for('static', filename='style.css') }}'>"
 "Flask में एक यूज़र को दूसरे पेज पर रीडायरेक्ट करो","from flask import redirect, url_for\n@app.route('/admin')\ndef admin_page():\n    return redirect(url_for('home_page'))"
 "पैरामीटर लेने वाली एक पाइथन API बनाओ","from flask import request, jsonify\n@app.route('/api/greet')\ndef greet_api():\n    name = request.args.get('name', 'Guest')\n    return jsonify({'greeting': f'Hello, {name}!'})"
 "पैरामीटर के साथ जावास्क्रिप्ट से API को कॉल करो","<script>fetch('/api/greet?name=Amit').then(r=>r.json()).then(d=>console.log(d.greeting));</script>"
