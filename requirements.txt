@@ -1,2 +1,7 @@
 Flask
 python-telegram-bot
+transformers
+accelerate
+bitsandbytes
+peft
+torch
