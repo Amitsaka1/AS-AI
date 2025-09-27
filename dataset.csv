@@ -1,5 +1,4 @@
 prompt,code
-"CSS से एक div के अंदर सीधे पैराग
 "एक एलिमेंट के ठीक बाद आने वाले पैराग्राफ को स्टाइल करो (Adjacent Sibling)","<style>h2 + p { font-style: italic; }</style><h2>Heading</h2><p>This paragraph is italic.</p><p>This one is not.</p>"
 "एक हेडिंग के बाद आने वाले सभी पैराग्राफ को स्टाइल करो (General Sibling)","<style>h3 ~ p { color: grey; }</style><h3>Title</h3><p>Grey.</p><div><p>Not grey.</p></div><p>Grey.</p>"
 "उन सभी लिंक्स को स्टाइल करो जिनमें 'target' एट्रिब्यूट हो","<style>a[target] { border: 1px solid green; }</style><a href='#' target='_blank'>Styled</a><a href='#'>Not Styled</a>"
