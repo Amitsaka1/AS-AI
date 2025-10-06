@@ -76,7 +76,7 @@ prompt,code
 "एक CI/CD पाइपलाइन का कॉन्सेप्ट","// A series of steps that must be performed in order to deliver a new version of software. It involves stages like build, test, and deploy."
 "GitHub Actions का एक वर्कफ्लो जो एक Docker इमेज बनाए और पुश करे","name: Docker CI\non: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v2\n    - name: Build and push Docker image\n      uses: docker/build-push-action@v2\n      with:\n        push: true\n        tags: user/app:latest"
 "एक सर्वरलेस API Gateway बनाओ (AWS)","// In AWS Console, create an API Gateway that triggers a Lambda function."
-"AWS DynamoDB (NoSQL) में एक आइटम डालो","aws dynamodb put-item --table-name Music --item '{\""Artist\"": {\"S"": ""No One You Know\""}}'"
+"AWS DynamoDB (NoSQL) में एक आइटम डालो","aws dynamodb put-item --table-name Music --item '{\""Artist\"": {\""S"": ""No One You Know\""}}'"
 "Google Firestore (NoSQL) में एक डॉक्यूमेंट जोड़ो","db.collection('users').add({'name': 'Amit'})"
 "एक ब्लॉब स्टोरेज (Blob Storage) क्या है","// A feature for storing massive amounts of unstructured data, such as text or binary data."
 "एक ऑब्जेक्ट स्टोरेज (Object Storage) क्या है","// A computer data storage architecture that manages data as objects, as opposed to other storage architectures like file systems."
