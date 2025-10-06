@@ -52,7 +52,7 @@ prompt,code
 "एक सिंपल Google Cloud फंक्शन (पाइथन)","def hello_gcf(request):\n    return 'Hello, World!'"
 "एक Docker कंटेनर को रन करो और पोर्ट को मैप करो","docker run -p 8080:80 nginx"
 "एक Docker इमेज को बिल्ड करो","docker build -t my-app ."
-"एक सिंपल Dockerfile (Node.js के लिए)","FROM node:18\nWORKDIR /app\nCOPY package.json .\nRUN npm install\nCOPY . .\nCMD [\"node\", \"index.js\"]"
+"एक सिंपल Dockerfile (Node.js के लिए)","FROM node:18\nWORKDIR /app\nCOPY package.json .\nRUN npm install\nCOPY . .\nCMD [""node"", ""index.js""]"
 "एक सिंपल Docker Compose फाइल (वेब + रेडिस)","version: '3.8'\nservices:\n  web:\n    build: .\n  redis:\n    image: 'redis:alpine'"
 "Docker Compose को चलाओ","docker-compose up"
 "एक Kubernetes Pod का YAML कॉन्फ़िगरेशन","apiVersion: v1\nkind: Pod\nmetadata:\n  name: my-pod\nspec:\n  containers:\n  - name: my-container\n    image: nginx"
