@@ -14,7 +14,7 @@ prompt,code
 "एक git रिपॉजिटरी को क्लोन करो","git clone https://github.com/user/repo.git"
 "एक `.gitignore` फाइल बनाओ","// Create a file named .gitignore"
 "`.gitignore` में एक फाइल या फोल्डर को इग्नोर करो","// In .gitignore:\nmy_secret_file.txt\nnode_modules/"
-"एक सिंपल Dockerfile बनाओ (पाइथन के लिए)","FROM python:3.9-slim\nWORKDIR /app\nCOPY . /app\nCMD [\"python\", \"./app.py\"]"
+"एक सिंपल Dockerfile बनाओ (पाइथन के लिए)","FROM python:3.9-slim\nWORKDIR /app\nCOPY . /app\nCMD [""python"", ""./app.py""]"
 "एक Docker इमेज को बिल्ड करो","docker build -t my-python-app ."
 "एक Docker कंटेनर को रन करो","docker run my-python-app"
 "Docker Hub पर एक इमेज को पुश करो","docker push your-username/my-python-app"
