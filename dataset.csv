@@ -1,5 +1,4 @@
 prompt,code
-"एक पाइथन स्क्रिप्ट बनाओ जो कमांड-लाइन से एक नाम ले और उसे ग्रीट करे
 "एक पाइथन स्क्रिप्ट बनाओ जो कमांड-लाइन से एक नाम ले और उसे ग्रीट करे","import sys\nif len(sys.argv) > 1:\n    name = sys.argv[1]\n    print(f'Hello, {name}')"
 "एक कमांड-लाइन कैलकुलेटर बनाओ जो दो नंबरों को जोड़े","import sys\nnum1 = int(sys.argv[1])\nnum2 = int(sys.argv[2])\nprint(num1 + num2)"
 "`argparse` का उपयोग करके एक कमांड-लाइन टूल बनाओ","import argparse\nparser = argparse.ArgumentParser()\nparser.add_argument('filename')\nargs = parser.parse_args()"
