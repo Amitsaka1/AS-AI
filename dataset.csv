@@ -3091,7 +3091,7 @@ prompt,code
 "एक CI/CD पाइपलाइन का कॉन्सेप्ट","// A CI/CD pipeline is a series of steps that must be performed in order to deliver a new version of software. It involves automated stages like build, test, and deployment."
 "GitHub Actions का एक वर्कफ्लो जो एक Docker इमेज बनाए और पुश करे","name: Docker CI\non: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n    - uses: actions/checkout@v3\n    - name: Build and push Docker image\n      uses: docker/build-push-action@v4\n      with:\n        push: true\n        tags: your-username/my-app:latest"
 "एक सर्वरलेस API Gateway बनाओ (AWS)","// In the AWS Management Console, create a new API Gateway, define a resource and method (e.g., GET), and configure it to trigger a Lambda function as its integration backend."
-"AWS DynamoDB (NoSQL) में एक आइटम डालो","aws dynamodb put-item --table-name MyTable --item '{\""ID\"": {\"N"": ""1\""}, \""Name\"": {\"S"": ""Amit\""}}'"
+"AWS DynamoDB (NoSQL) में एक आइटम डालो","aws dynamodb put-item --table-name MyTable --item '{\"ID\": {\"N\": \"1\"}, \"Name\": {\"S\": \"Amit\"}}'"
 "Google Firestore (NoSQL) में एक डॉक्यूमेंट जोड़ो","db.collection('users').document('amit').set({'first': 'Amit', 'last': 'Saka'})"
 "एक ब्लॉब स्टोरेज (Blob Storage) क्या है","// Blob (Binary Large Object) storage is a feature in cloud platforms for storing massive amounts of unstructured data, such as text or binary data."
 "एक ऑब्जेक्ट स्टोरेज (Object Storage) क्या है","// A computer data storage architecture that manages data as objects. Each object typically includes the data itself, a variable amount of metadata, and a globally unique identifier."
