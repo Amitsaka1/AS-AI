@@ -1001,7 +1001,7 @@ prompt,code
 "एक सिंपल API सर्वर बनाओ जो FastAPI का उपयोग करे","from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef read_root(): return {'Hello': 'World'}"
 "पाइथन में एक SQLite डेटाबेस से कनेक्ट करो","import sqlite3\nconn = sqlite3.connect('my_database.db')"
 "SQLite डेटाबेस में एक टेबल बनाओ","import sqlite3\nconn = sqlite3.connect('db.db')\nc = conn.cursor()\nc.execute('CREATE TABLE users (id INT, name TEXT)')\nconn.commit()\nconn.close()"
-"SQLite टेबल में डेटा इंसर्ट करो","import sqlite3\nconn = sqlite3.connect('db.db')\nc = conn.cursor()\nc.execute(\"INSERT INTO users VALUES (1, 'Amit')\")\nconn.commit()\nconn.close()"
+"SQLite टेबल में डेटा इंसर्ट करो","import sqlite3\nconn = sqlite3.connect('db.db')\nc = conn.cursor()\nc.execute('''INSERT INTO users VALUES (1, 'Amit')''')\nconn.commit()\nconn.close()"
 "SQLite टेबल से डेटा सिलेक्ट करो","import sqlite3\nconn = sqlite3.connect('db.db')\nc = conn.cursor()\nfor row in c.execute('SELECT * FROM users'):\n    print(row)"
 "एक Temporary Directory बनाओ","import tempfile\nwith tempfile.TemporaryDirectory() as tmpdir:\n    print('Created temporary directory', tmpdir)"
 "एक टेक्स्ट फाइल की आखिरी N लाइनों को पढ़ो","def read_last_n_lines(filename, n):\n    with open(filename, 'r') as f:\n        return f.readlines()[-n:]"
