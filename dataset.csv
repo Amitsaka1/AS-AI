@@ -1980,7 +1980,7 @@ prompt,code
 "एक 'smoke' टेस्ट क्या है","// A smoke test is a small suite of tests that checks the most basic and critical functionality of an application to quickly determine if a build is stable enough for further testing."
 "A/B टेस्टिंग का कॉन्सेप्ट","// A randomized experiment with two variants (A and B), which are the control and treatment in the controlled experiment. It is a way to compare two versions of a single variable to determine which of the two performs better."
 "Postman का उपयोग करके एक API एंडपॉइंट को टेस्ट करो","// Create a new request in the Postman application, set the HTTP method (GET, POST, etc.), enter the endpoint URL, add any headers or body, and hit 'Send' to see the response."
-"पाइथन में `doctest` का उपयोग करो","""def add(a, b):\n    """>>> add(1, 2)\n    3\n    >>> add(-1, 1)\n    0\n    ""\n    return a + b"""
+"पाइथन में `doctest` का उपयोग करो","""def add(a, b):\n    '''>\>\> add(1, 2)\n    3\n    >>> add(-1, 1)\n    0\n    '''\n    return a + b"""
 "एक 'faker' लाइब्रेरी का उपयोग करके टेस्ट के लिए फेक डेटा जेनरेट करो","from faker import Faker\nfake = Faker()\n\n# Generate fake data\nfake_name = fake.name()\nfake_address = fake.address()"
 "स्ट्रेस टेस्टिंग (Stress Testing) का कॉन्सेप्ट","// A type of performance testing to determine the stability of a system by testing it beyond normal operational capacity, often to a breaking point."
 "लोड टेस्टिंग (Load Testing) का कॉन्सेप्ट","// The process of putting simulated demand on a system or device and measuring its response. It is performed to determine a system's behavior under both normal and anticipated peak load conditions."
